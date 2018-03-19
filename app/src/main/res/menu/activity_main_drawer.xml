@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_unidad1"
+            android:icon="@drawable/ic_looks_one_black_24dp"
+            android:title="Unidad 1.- Interfaces Graficas" />
+        <item
+            android:id="@+id/nav_unidad2"
+            android:icon="@drawable/ic_looks_two_black_24dp"
+            android:title="Unidad 2.- Persitencia" />
+
+
+
+        <item
+            android:id="@+id/nav_unidad3"
+            android:icon="@drawable/ic_looks_3_black_24dp"
+            android:title="Unidad 3.- Uso de Hardware" >
+            <menu>
+                <item
+                    android:id="@+id/nav_camara"
+                    android:title="Camara"
+                    android:icon="@drawable/ic_menu_camera"/>
+
+                <item
+                    android:id="@+id/nav_bluetooth"
+                    android:title="Bluethoot"
+                    android:icon="@drawable/ic_bluetooth_black_24dp"/>
+            </menu>
+
+        </item>
+
+
+    </group>
+
+
+
+  <!--  <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
+        </menu>
+    </item> -->
+
+</menu>

@@ -1,0 +1,34 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.arrec.navigation_view.Fragment4">
+
+    <LinearLayout
+        android:layout_marginTop="150dp"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_gravity="center"
+            android:textAlignment="viewEnd"
+            android:text="Bluetooth"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat" />
+
+        <Switch
+            android:id="@+id/switch_bluetooth"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.30"
+            android:checked="false"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+</FrameLayout>
