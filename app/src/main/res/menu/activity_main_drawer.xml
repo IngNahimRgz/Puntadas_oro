@@ -11,7 +11,13 @@
             android:icon="@drawable/ic_looks_two_black_24dp"
             android:title="Unidad 2.- Persitencia" />
 
+        <item
+            android:id="@+id/nav_unidad4"
+            android:icon="@drawable/ic_looks_4_black_24dp"
+            android:title="Unidad 4.- Base de datos"/>
 
+
+    </group>
 
         <item
             android:id="@+id/nav_unidad3"
@@ -31,8 +37,10 @@
 
         </item>
 
+        <group android:checkableBehavior="all">
 
-    </group>
+
+        </group>
 
 
 

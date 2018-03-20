@@ -2,10 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.arrec.navigation_view.Fragment1">
+
+    tools:context="com.example.arrec.navigation_view.fragments.Fragment1">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
+
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -28,12 +30,13 @@
 
             <Button
                 android:id="@+id/btnCambiarTextoEtiqueta"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="onClickButton"
-                android:text="Cambiar texto" />
+                android:text="Cambiar texto"
+                tools:ignore="OnClick" />
         </LinearLayout>
 
         <LinearLayout
@@ -53,7 +56,7 @@
 
             <Button
                 android:id="@+id/btnMostrarToast"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -78,7 +81,7 @@
 
             <Button
                 android:id="@+id/btnMostrarDialogo"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -103,7 +106,7 @@
 
             <Button
                 android:id="@+id/btnMostrarNotificacion"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

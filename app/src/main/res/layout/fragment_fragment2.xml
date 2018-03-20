@@ -2,10 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.arrec.navigation_view.Fragment2">
+    tools:context="com.example.arrec.navigation_view.fragments.Fragment2">
 
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

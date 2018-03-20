@@ -1,4 +1,4 @@
-package com.example.arrec.navigation_view;
+package com.example.arrec.navigation_view.fragments;
 
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
@@ -7,13 +7,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Switch;
 import android.widget.Toast;
+
+import com.example.arrec.navigation_view.R;
 
 
 public class Fragment4 extends Fragment  {
@@ -50,7 +51,7 @@ public class Fragment4 extends Fragment  {
         View view = inflater.inflate(R.layout.fragment_fragment4, container, false);
 
         BTAdapter = BluetoothAdapter.getDefaultAdapter();
-        // Phone does not support Bluetooth so let the user know and exit.
+        // Phone does not support Bluetooth so let the User know and exit.
         if (BTAdapter == null) {
             new AlertDialog.Builder(getContext())
                     .setTitle("Not compatible")

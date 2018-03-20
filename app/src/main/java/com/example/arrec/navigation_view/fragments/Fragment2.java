@@ -1,4 +1,4 @@
-package com.example.arrec.navigation_view;
+package com.example.arrec.navigation_view.fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.arrec.navigation_view.R;
 
 
 public class Fragment2 extends Fragment {
@@ -45,13 +47,14 @@ public class Fragment2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_fragment2, container, false);
+        View view = inflater.inflate(R.layout.fragment_fragment2, container, false); //inflamos el fragment para poder vincular los elementos
+       //Vinculamos los TextView para poder modificarlos
         username = (TextView) view.findViewById(R.id.txtVwUserGuardado);
         email = (TextView) view.findViewById(R.id.txtVwCorreoGuardado);
 
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext()); // Leemos los shared preferences guardados
 
-        username.setText(preferences.getString("user_name", "null"));
+        username.setText(preferences.getString("user_name", "null")); // le enviamos los valores guardados
         email.setText(preferences.getString("email","correo null"));
         return view;
     }

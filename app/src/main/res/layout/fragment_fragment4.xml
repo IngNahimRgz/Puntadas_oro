@@ -3,7 +3,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.arrec.navigation_view.Fragment4">
+    tools:context="com.example.arrec.navigation_view.fragments.Fragment4">
 
     <LinearLayout
         android:layout_marginTop="150dp"

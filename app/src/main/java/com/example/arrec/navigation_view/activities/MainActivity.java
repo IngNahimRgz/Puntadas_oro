@@ -1,15 +1,12 @@
-package com.example.arrec.navigation_view;
+package com.example.arrec.navigation_view.activities;
 
 import android.app.AlertDialog;
-import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
@@ -26,6 +23,18 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.arrec.navigation_view.R;
+import com.example.arrec.navigation_view.fragments.Fragment1;
+import com.example.arrec.navigation_view.fragments.Fragment2;
+import com.example.arrec.navigation_view.fragments.Fragment3;
+import com.example.arrec.navigation_view.fragments.Fragment4;
+import com.example.arrec.navigation_view.settings.SettingsActivity;
+
+/**
+ * Tenemos la clase Principal, a la cual le tenemos que indicar que implemente los metodos
+ * OnFragmentInteractionListener, debido a que la aplicacion unicamente tendra un activity,
+ * el dise;o de la vista sera hecha por fragmentos
+ */
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         Fragment1.OnFragmentInteractionListener,
@@ -33,6 +42,11 @@ public class MainActivity extends AppCompatActivity
         Fragment3.OnFragmentInteractionListener,
         Fragment4.OnFragmentInteractionListener {
 
+    /**
+     * @Variables_Globales txtView, navigationView;
+     * el TextView sera la etiqueta que cambiara de texto cuando se presione el boton
+     * y el NavigationView es donde mostraremos el menu
+     */
     TextView txtEtiqueta;
     NavigationView navigationView;
 
@@ -41,6 +55,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         setContentView(R.layout.activity_main);
+
+        // -----------------------Vinculacion de los elementos de la interfaz------------------------------------------------------------
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -55,12 +71,18 @@ public class MainActivity extends AppCompatActivity
 
         TextView userName = (TextView) hView.findViewById(R.id.UserName_navView);
         TextView email = (TextView) hView.findViewById(R.id.Email_NavView);
+        //--------------------Fin de la vinculacion ----------------------------------------------------------------------------------------
 
-        userName.setText(preferences.getString("user_name", "Name"));
-        email.setText(preferences.getString("email", "null"));
 
-        navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_unidad1);
+        String emailFromIntent = getIntent().getStringExtra("EMAIL");
+        email.setText(emailFromIntent);
+
+
+        //userName.setText(preferences.getString("user_name", "Name")); // Mandamos los valores guardados en las preferencias al navigation
+       // email.setText(preferences.getString("email", "null"));
+
+        navigationView.setNavigationItemSelectedListener(this); // asiganmos el metodo onClick al navigationView
+        navigationView.setCheckedItem(R.id.nav_unidad1); // hacemos que por default el primer elemento este seleccionado
 
         Fragment fragment = new Fragment1();
         getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor, fragment).commit();
@@ -81,7 +103,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.main, menu); // inflamos el menu, el que se mostrara a la derecha y que contendra las opciones de "Shared Preferences" y la opcion de salir
         return true;
     }
 
@@ -94,18 +116,24 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
+            Intent intent = new Intent(this, SettingsActivity.class); // abre el menu de configuracion
             startActivity(intent);
 
             return true;
         }
         if (id == R.id.action_exit) {
-            finish();
+            finish(); // termina la aplicacion
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Este metodo se sobreescribe al usar el navigationView,
+     * @param item recibe el item seleccionado, y lo usamos para identificar cual item fue seleccionado y una vez identificamos cual fue,
+     *             creamos el fragment de la actividad.
+     * @return
+     */
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -133,10 +161,15 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_bluetooth) {
             fragment = new Fragment4();
             fragmentTransition = true;
+
+        } else if (id == R.id.nav_unidad4){
+            Intent intentBD = new Intent(getApplicationContext(), UsersListActivity.class);
+            startActivity(intentBD);
         }
 
         if (fragmentTransition) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor, fragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor, fragment).commit(); // Una vez seleccionado remplazamos el fragment actual por el nuevo fragment
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -149,20 +182,24 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    /**
+     * Este metodo onClick se lo asignamos a los botones del primer fragment, con un switch sabemos cual fue el boton presionado y realizamos las siguientes acciones:
+     * @param view
+     */
     public void onClickButton(View view) {
         Button button = (Button) view;
         txtEtiqueta = (TextView) findViewById(R.id.txtEtiqueta1);
 
         switch (button.getId()) {
             case R.id.btnCambiarTextoEtiqueta:
-                txtEtiqueta.setText("Texto Cambiado");
+                txtEtiqueta.setText("Texto Cambiado"); // cambia el texto de la etiqueta
                 break;
 
             case R.id.btnMostrarToast:
-                Toast.makeText(this, "Este es un Toast", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Este es un Toast", Toast.LENGTH_SHORT).show(); //muestra un toast
                 break;
 
-            case R.id.btnMostrarDialogo:
+            case R.id.btnMostrarDialogo: // Para mostrar un AlertDialog tenemos que llamar a su constructor, le enviamos el mensaje y un boton OK, este generara un metodo OnClick, pero esta vez no lo utilizaremos
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setMessage("Esto es un Dialogo").setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
@@ -173,7 +210,7 @@ public class MainActivity extends AppCompatActivity
                 builder.show();
                 break;
 
-            case R.id.btnMostrarNotificacion:
+            case R.id.btnMostrarNotificacion: //Al igual que con el AlertDialog  para mostrar una notificacion tenemos que llamar al Constructor
                 NotificationCompat.Builder mBuilder = (NotificationCompat.Builder) new NotificationCompat.Builder(getApplicationContext())
                         .setSmallIcon(R.drawable.ic_perm_device_information_black_24dp)
                         .setContentTitle("Notificacion")
