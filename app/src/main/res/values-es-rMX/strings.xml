@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Proyecto Final</string>
+    <string name="action_settings">Configuracion</string>
+    <string name="hello_blank_fragment">Hola, fragmento en blanco</string>
+    <string name="text_accounts">Todas las cuentas</string>
+    <string name="hint_name">Nombre</string>
+    <string name="hint_email">Usuario</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="hint_confirm_password">Confirmar contraseña</string>
+    <string name="text_register">Registrar</string>
+    <string name="error_message_name">Ingresa tu nombre completo</string>
+    <string name="error_message_email">Ingresa un email valido</string>
+    <string name="error_message_age">Ingresa Edad</string>
+    <string name="error_message_password">Ingresa contraseña</string>
+    <string name="success_message">Registro correcto</string>
+    <string name="text_not_member">Aun no estas registrado? Crea una nueva cuenta</string>
+    <string name="text_already_member">Ya estas registrado? Inicia sesion</string>
+</resources>
