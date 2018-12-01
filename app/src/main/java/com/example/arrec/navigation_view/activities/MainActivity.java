@@ -150,6 +150,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_unidad2) {
             fragment = new Fragment2();
+
             fragmentTransition = true;
 
 
