@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:padding="10sp">
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/fotoMensaje"
+                android:id="@+id/fotoMensajePerfil"
                 android:src="@mipmap/ic_launcher"
                 android:layout_width="24sp"
                 android:layout_height="24sp" />

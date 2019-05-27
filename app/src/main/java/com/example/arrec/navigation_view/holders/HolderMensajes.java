@@ -12,8 +12,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class HolderMensajes extends RecyclerView.ViewHolder {
 
     private TextView nombreMensaje, mensajeMensaje, horaMensaje;
-    private CircleImageView fotoMensaje;
-    private ImageView fotoMensajeEnviada;
+    private CircleImageView fotoMensajePerfil;
+    private ImageView fotoMensaje;
 
 
     public HolderMensajes(View itemView) {
@@ -22,16 +22,16 @@ public class HolderMensajes extends RecyclerView.ViewHolder {
         nombreMensaje = itemView.findViewById(R.id.tvNombreMensaje);
         mensajeMensaje = itemView.findViewById(R.id.tvMensajeMensaje);
         horaMensaje = itemView.findViewById(R.id.tvHoraMensaje);
-        fotoMensaje = itemView.findViewById(R.id.fotoMensaje);
-        fotoMensajeEnviada = itemView.findViewById(R.id.mensajeFoto);
+        fotoMensajePerfil = itemView.findViewById(R.id.fotoMensajePerfil);
+        fotoMensaje = itemView.findViewById(R.id.mensajeFoto);
     }
 
-    public ImageView getFotoMensajeEnviada() {
-        return fotoMensajeEnviada;
+    public ImageView getFotoMensaje() {
+        return fotoMensaje;
     }
 
-    public void setFotoMensajeEnviada(ImageView fotoMensajeEnviada) {
-        this.fotoMensajeEnviada = fotoMensajeEnviada;
+    public void setFotoMensaje(ImageView fotoMensaje) {
+        this.fotoMensaje = fotoMensaje;
     }
 
     public TextView getNombreMensaje() {
@@ -58,11 +58,11 @@ public class HolderMensajes extends RecyclerView.ViewHolder {
         this.horaMensaje = horaMensaje;
     }
 
-    public CircleImageView getFotoMensaje() {
-        return fotoMensaje;
+    public CircleImageView getFotoMensajePerfil() {
+        return fotoMensajePerfil;
     }
 
-    public void setFotoMensaje(CircleImageView fotoMensaje) {
-        this.fotoMensaje = fotoMensaje;
+    public void setFotoMensajePerfil(CircleImageView fotoMensajePerfil) {
+        this.fotoMensajePerfil = fotoMensajePerfil;
     }
 }

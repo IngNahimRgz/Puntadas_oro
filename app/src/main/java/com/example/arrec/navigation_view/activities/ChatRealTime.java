@@ -89,6 +89,25 @@ public class ChatRealTime extends AppCompatActivity {
                     });
                 }
             });
+        } else if (requestCode == 2 && resultCode == RESULT_OK) {
+            Uri u = data.getData();
+            storageReference = storage.getReference("foto_perfil");
+            final StorageReference fotoReferencia = storageReference.child(u.getLastPathSegment());
+            fotoReferencia.putFile(u).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    fotoReferencia.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Uri u = uri;
+                            FotoPerfilCadena = u.toString();
+                            MensajeEnviar m = new MensajeEnviar("User ha cambiado su foto de perfil", tvNombre.getText().toString(), FotoPerfilCadena, "2", u.toString(), ServerValue.TIMESTAMP);
+                            databaseReference.push().setValue(m);
+                            Glide.with(ChatRealTime.this).load(u.toString()).into(imgFotoPerfil);
+                        }
+                    });
+                }
+            });
         }
     }
 
@@ -118,7 +137,7 @@ public class ChatRealTime extends AppCompatActivity {
         btnEnviarMensaje.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               databaseReference.push().setValue(new Mensaje(etMensaje.getText().toString(), tvNombre.getText().toString(),"","00:10","1"));
+                databaseReference.push().setValue(new MensajeEnviar(etMensaje.getText().toString(), tvNombre.getText().toString(), "", "1", ServerValue.TIMESTAMP));
                etMensaje.setText("");
             }
         });
@@ -133,6 +152,15 @@ public class ChatRealTime extends AppCompatActivity {
             }
         });
 
+        imgFotoPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+                i.setType("image/jpeg");
+                i.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
+                startActivityForResult(Intent.createChooser(i, "Selecciona una imagen"), 2);
+            }
+        });
 
 
         adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
