@@ -4,22 +4,26 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_unidad1"
-            android:icon="@drawable/ic_looks_one_black_24dp"
-            android:title="Unidad 1.- Interfaces Graficas" />
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Home" />
         <item
             android:id="@+id/nav_unidad2"
-            android:icon="@drawable/ic_looks_two_black_24dp"
-            android:title="Unidad 2.- Persitencia" />
+            android:icon="@drawable/ic_credit_card_black_24dp"
+            android:title="Realizar pago" />
+        <item
+            android:id="@+id/nav_unidad3"
+            android:icon="@drawable/ic_account_box_black_24dp"
+            android:title="Mi perfil" />
 
         <item
             android:id="@+id/nav_unidad4"
-            android:icon="@drawable/ic_looks_4_black_24dp"
-            android:title="Unidad 4.- Base de datos"/>
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="Cerrar Sesión"/>
 
 
     </group>
 
-        <item
+       <!-- <item
             android:id="@+id/nav_unidad3"
             android:icon="@drawable/ic_looks_3_black_24dp"
             android:title="Unidad 3.- Uso de Hardware" >
@@ -40,7 +44,7 @@
         <group android:checkableBehavior="all">
 
 
-        </group>
+        </group> -->
 
 
 

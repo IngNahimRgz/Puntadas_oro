@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ChatRealTime"
+    android:padding="5sp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivFotoPerfil"
+            android:layout_width="48sp"
+            android:layout_height="48sp"
+            android:src="@mipmap/ic_launcher"/>
+        <TextView
+            android:id="@+id/tvNombreChat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nahim Rodriguez"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvMensajes"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/btnEnviarImagen"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_menu_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/etMensaje"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Escribe un mensaje"
+            android:layout_weight="1"/>
+        <Button
+            android:id="@+id/btnEnviarMensajeChat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enviar"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

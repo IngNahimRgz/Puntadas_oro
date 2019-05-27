@@ -1,5 +1,6 @@
 package com.example.arrec.navigation_view.activities;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity
 
 
         //userName.setText(preferences.getString("user_name", "Name")); // Mandamos los valores guardados en las preferencias al navigation
-       // email.setText(preferences.getString("email", "null"));
+        // email.setText(preferences.getString("email", "null"));
 
         navigationView.setNavigationItemSelectedListener(this); // asiganmos el metodo onClick al navigationView
         navigationView.setCheckedItem(R.id.nav_unidad1); // hacemos que por default el primer elemento este seleccionado
@@ -130,6 +131,7 @@ public class MainActivity extends AppCompatActivity
 
     /**
      * Este metodo se sobreescribe al usar el navigationView,
+     *
      * @param item recibe el item seleccionado, y lo usamos para identificar cual item fue seleccionado y una vez identificamos cual fue,
      *             creamos el fragment de la actividad.
      * @return
@@ -149,23 +151,14 @@ public class MainActivity extends AppCompatActivity
             fragmentTransition = true;
 
         } else if (id == R.id.nav_unidad2) {
-            fragment = new Fragment2();
-
-            fragmentTransition = true;
-
-
-        } else if (id == R.id.nav_camara) {
-            fragment = new Fragment3();
-            fragmentTransition = true;
+//            fragment = new Fragment2();
+//
+//            fragmentTransition = true;
 
 
-        } else if (id == R.id.nav_bluetooth) {
-            fragment = new Fragment4();
-            fragmentTransition = true;
-
-        } else if (id == R.id.nav_unidad4){
-            Intent intentBD = new Intent(getApplicationContext(), UsersListActivity.class);
-            startActivity(intentBD);
+        } else if (id == R.id.nav_unidad4) {
+//            Intent intentBD = new Intent(getApplicationContext(), UsersListActivity.class);
+//            startActivity(intentBD);
         }
 
         if (fragmentTransition) {
@@ -185,6 +178,7 @@ public class MainActivity extends AppCompatActivity
 
     /**
      * Este metodo onClick se lo asignamos a los botones del primer fragment, con un switch sabemos cual fue el boton presionado y realizamos las siguientes acciones:
+     *
      * @param view
      */
     public void onClickButton(View view) {
@@ -192,35 +186,42 @@ public class MainActivity extends AppCompatActivity
         txtEtiqueta = (TextView) findViewById(R.id.txtEtiqueta1);
 
         switch (button.getId()) {
-            case R.id.btnCambiarTextoEtiqueta:
-                txtEtiqueta.setText("Texto Cambiado"); // cambia el texto de la etiqueta
+            case R.id.btnLecciones:
+                Intent lecciones = new Intent(this, LessonsActivity.class);
+                startActivity(lecciones);
                 break;
 
-            case R.id.btnMostrarToast:
-                Toast.makeText(this, "Este es un Toast", Toast.LENGTH_SHORT).show(); //muestra un toast
+
+            case R.id.btnIniciarForo:
+                Intent foro = new Intent(this, ChatRealTime.class);
+                startActivity(foro);
                 break;
 
-            case R.id.btnMostrarDialogo: // Para mostrar un AlertDialog tenemos que llamar a su constructor, le enviamos el mensaje y un boton OK, este generara un metodo OnClick, pero esta vez no lo utilizaremos
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+           /* case R.id.btnMostrarToast:
+                Toast.makeText(this, "Aun no disponible :(", Toast.LENGTH_SHORT).show(); //muestra un toast
+                break;*/
+
+            /*case R.id.btnMostrarDialogo: // Para mostrar un AlertDialog tenemos que llamar a su constructor, le enviamos el mensaje y un boton OK, este generara un metodo OnClick, pero esta vez no lo utilizaremos
+               *//* AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setMessage("Esto es un Dialogo").setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
                     }
                 });
-                builder.show();
-                break;
+                builder.show();*//*
+                break;*/
 
-            case R.id.btnMostrarNotificacion: //Al igual que con el AlertDialog  para mostrar una notificacion tenemos que llamar al Constructor
-                NotificationCompat.Builder mBuilder = (NotificationCompat.Builder) new NotificationCompat.Builder(getApplicationContext())
+           /* case R.id.btnMostrarNotificacion: //Al igual que con el AlertDialog  para mostrar una notificacion tenemos que llamar al Constructor
+                *//*NotificationCompat.Builder mBuilder = (NotificationCompat.Builder) new NotificationCompat.Builder(getApplicationContext())
                         .setSmallIcon(R.drawable.ic_perm_device_information_black_24dp)
                         .setContentTitle("Notificacion")
                         .setContentText("Esto es el mensaje de la notificacion ")
                         .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
                 NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getApplicationContext());
-                notificationManager.notify(1, mBuilder.build());
-                break;
+                notificationManager.notify(1, mBuilder.build());*//*
+                break;*/
 
 
         }

@@ -12,6 +12,60 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+
+        <LinearLayout
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Lecciones"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textSize="28sp" />
+
+            <Button
+                android:id="@+id/btnLecciones"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickButton"
+                tools:ignore="OnClick"
+                android:text="Ingresar" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Logros"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textSize="28sp" />
+
+            <Button
+                android:id="@+id/btnMostrarDialogo"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:ignore="OnClick"
+                android:onClick="onClickButton"
+                android:text="Ingresar" />
+        </LinearLayout>
+
         <LinearLayout
             android:weightSum="2"
             android:orientation="horizontal"
@@ -23,86 +77,36 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Esto es una etiqueta"
+                android:text="Foro"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textSize="14sp" />
+                android:textSize="28sp" />
 
             <Button
-                android:id="@+id/btnCambiarTextoEtiqueta"
+                android:id="@+id/btnIniciarForo"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="onClickButton"
-                android:text="Cambiar texto"
+                android:text="Ingresar"
                 tools:ignore="OnClick" />
         </LinearLayout>
 
         <LinearLayout
-            android:weightSum="2"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Mostrar Toast"
+                android:text="Contactar a la maestra"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textSize="14sp" />
-
-            <Button
-                android:id="@+id/btnMostrarToast"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="onClickButton"
-                android:text="Toast" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:weightSum="2"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Mostrar cuadro de Dialogo"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textSize="14sp" />
-
-            <Button
-                android:id="@+id/btnMostrarDialogo"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="onClickButton"
-                android:text="Dialogo" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:weightSum="2"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Mostrar Notificacion"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textSize="14sp" />
+                android:textSize="28sp" />
 
             <Button
                 android:id="@+id/btnMostrarNotificacion"
@@ -110,8 +114,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                tools:ignore="OnClick"
+                android:layout_gravity="center"
                 android:onClick="onClickButton"
-                android:text="Notificacion" />
+                android:text="Ingresar" />
         </LinearLayout>
 
 
